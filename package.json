@@ -12,7 +12,6 @@
     "start": "node lib/js/src/index.js"
   },
   "dependencies": {
-    "bs-express": "https://github.com/reasonml-community/bs-express#master",
     "bs-json": "^0.2.3",
     "bs-node-fetch": "^0.1.2",
     "bs-platform": "^2.0.0",

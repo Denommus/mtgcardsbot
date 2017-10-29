@@ -40,4 +40,6 @@ let processUpdate (bot : bot) obj = bot##processUpdate obj
 
 let onInlineQuery (bot : bot) f = bot##on "inline_query" (fun [@bs] msg -> f msg)
 
+let onMessage (bot : bot) f = bot##on "message" (fun [@bs] msg -> f msg)
+
 let answerInlineQuery (bot : bot) query results = bot##answerInlineQuery query##id results

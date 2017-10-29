@@ -26,4 +26,6 @@ val processUpdate : bot -> Js.Json.t Js.Dict.t -> unit
 
 val onInlineQuery : bot -> (inlineQuery -> unit) -> unit
 
+val onMessage : bot -> (inlineQuery -> unit) -> unit
+
 val answerInlineQuery : bot -> inlineQuery -> inlineQueryResult array -> 'a Js.Promise.t
