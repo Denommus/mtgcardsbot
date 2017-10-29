@@ -14,11 +14,15 @@ type inlineQuery = <id : string; from : user; query : string; offset : string> J
 
 type options
 
-val options : ?polling:bool -> options
+val options : ?polling:bool -> ?webHook:< port : string > Js.t -> unit -> options
 
 type bot
 
 val bot : string -> options -> bot
+
+val setWebHook : bot -> string -> unit
+
+val processUpdate : bot -> Js.Json.t Js.Dict.t -> unit
 
 val onInlineQuery : bot -> (inlineQuery -> unit) -> unit
 

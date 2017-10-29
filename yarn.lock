@@ -92,9 +92,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bs-express@^0.0.4:
+"bs-express@https://github.com/reasonml-community/bs-express#master":
   version "0.0.4"
-  resolved "https://registry.yarnpkg.com/bs-express/-/bs-express-0.0.4.tgz#29af21f03dc4ace2ffdf8d610b4d2edd37ca32e8"
+  resolved "https://github.com/reasonml-community/bs-express#7571ae8fea0a349e8e77302e248e8e3d70362687"
   dependencies:
     express "^4.14.0"
 
