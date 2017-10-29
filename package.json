@@ -8,11 +8,12 @@
   "scripts": {
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "clean": "bsb -clean-world",
-    "start": "node lib/js/src/index.js"
+    "clean": "bsb -clean-world"
+  },
+  "devDependencies": {
+    "bs-platform": "^2.0.0"
   },
   "dependencies": {
-    "bs-platform": "^2.0.0",
     "bs-express": "^0.0.4",
     "bs-json": "^0.2.3",
     "bs-node-fetch": "^0.1.2",
