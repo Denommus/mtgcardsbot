@@ -1,0 +1,22 @@
+{
+  "name": "mtgcardsbot",
+  "version": "1.0.0",
+  "description": "Telegram bot to fetch MtG cards",
+  "main": "lib/js/src/index.js",
+  "author": "Yuri Albuquerque",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "devDependencies": {
+    "bs-platform": "^2.0.0"
+  },
+  "dependencies": {
+    "bs-express": "^0.0.4",
+    "bs-fetch": "^0.2.0",
+    "node-fetch": "^1.7.3",
+    "node-telegram-bot-api": "^0.29.0"
+  }
+}

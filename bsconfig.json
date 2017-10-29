@@ -1,0 +1,12 @@
+{
+    "name": "mtgcardsbot",
+    "reason": {"react-jsx" : 2},
+    "refmt": 3,
+    "version": "1.0.0",
+    "sources": [
+        "src"
+    ],
+    "bs-dependencies": [
+        "bs-express", "bs-fetch"
+    ]
+}
