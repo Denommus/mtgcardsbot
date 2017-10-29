@@ -24,6 +24,4 @@ let () =
              |> Array.of_list))
       |> then_ (fun _ -> resolve ())
       |> catch (fun err -> Js.log err; resolve ())
-      |> ignore);
-  let foo = ref 1 in
-  while true do foo := 2 done (* apparently the library doesn't keep the application open unless it's polling *)
+      |> ignore)
