@@ -7,6 +7,6 @@
         "src"
     ],
     "bs-dependencies": [
-        "bs-express", "bs-node-fetch", "bs-json"
+        "bs-express", "bs-node-fetch", "bs-json", "bs-express"
     ]
 }
