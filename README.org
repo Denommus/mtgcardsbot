@@ -1,0 +1,3 @@
+* @MtgCardsBot
+
+  This bot can be found on Telegram on @MtgCardsBot
