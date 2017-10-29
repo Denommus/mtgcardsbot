@@ -6,9 +6,12 @@ let telegramBot = bot token @@ TelegramApi.options ~polling:true
 
 let () =
   onInlineQuery telegramBot (fun query ->
-    Js.log query;
-    answerInlineQuery telegramBot query [|
-      makeInlineQueryResultArticle ~id:"foo" ~title:"bar" ~input_message_content:(makeInputTextMessageContent ~message_text:"baz" ())
-    |]
-    |> Js.Promise.then_ (fun x -> Js.log x; x)
-    |> ignore)
+      let open Js.Promise in
+      Mtg.searchCard (query##query)
+      |> then_ (fun cards ->
+          answerInlineQuery telegramBot query
+            (Array.to_list cards
+             |> List.filter (fun (card : Mtg.card) -> card.imageUrl <> "")
+             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.imageUrl ())
+             |> Array.of_list))
+      |> ignore)

@@ -8,6 +8,10 @@ external extInlineQueryResultArticle : _type:string -> id:string -> title:string
 
 let makeInlineQueryResultArticle = extInlineQueryResultArticle ~_type:"article"
 
+external extInlineQueryResultPhoto : _type:string -> id:string -> photo_url:string -> thumb_url:string -> ?title:string -> unit -> inlineQueryResult = "" [@@bs.obj]
+
+let makeInlineQueryResultPhoto = extInlineQueryResultPhoto ~_type:"photo"
+
 type user = <id : int; is_bot: Js.boolean; first_name : string; last_name : string; username : string; language_code : string> Js.t
 
 type inlineQuery = <id : string; from : user; query : string; offset : string> Js.t

@@ -98,9 +98,15 @@ bs-express@^0.0.4:
   dependencies:
     express "^4.14.0"
 
-bs-fetch@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.2.0.tgz#0537d70169c5746b16eeba8639df7442057db7cf"
+bs-json@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/bs-json/-/bs-json-0.2.3.tgz#a7761467b78d130f83713a99cf5514e61aca3611"
+
+bs-node-fetch@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/bs-node-fetch/-/bs-node-fetch-0.1.2.tgz#0e86af872083ddb28d9db357f4701a1891e8823e"
+  dependencies:
+    node-fetch "^1.7.2"
 
 bs-platform@^2.0.0:
   version "2.0.0"
@@ -494,7 +500,7 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-node-fetch@^1.7.3:
+node-fetch@^1.7.2, node-fetch@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.3.tgz#980f6f72d85211a5347c6b2bc18c5b84c3eb47ef"
   dependencies:

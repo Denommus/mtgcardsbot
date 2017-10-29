@@ -6,6 +6,8 @@ type inlineQueryResult
 
 val makeInlineQueryResultArticle : id:string -> title:string -> input_message_content:inputMessageContent -> inlineQueryResult
 
+val makeInlineQueryResultPhoto : id:string -> photo_url:string -> thumb_url:string -> ?title:string -> unit -> inlineQueryResult
+
 type user = <id : int; is_bot: Js.boolean; first_name : string; last_name : string; username : string; language_code : string> Js.t
 
 type inlineQuery = <id : string; from : user; query : string; offset : string> Js.t
