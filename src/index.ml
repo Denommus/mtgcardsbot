@@ -6,7 +6,7 @@ let port = try Sys.getenv "PORT" |> int_of_string with
   | Not_found -> 8080
 
 let url = try Sys.getenv "APP_URL" with
-  | Not_found -> "https://mtgcardsbot.herokuapp.com"
+  | Not_found -> "https://bot-mtgcardsbot.getup.io"
 
 let fullUrl = url ^ "/bot" ^ token
 

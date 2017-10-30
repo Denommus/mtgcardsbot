@@ -9,7 +9,7 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "start": "node lib/js/src/index.js"
+    "start": "bsb -make-world && node lib/js/src/index.js"
   },
   "dependencies": {
     "bs-json": "^0.2.3",
