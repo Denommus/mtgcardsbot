@@ -26,7 +26,7 @@ end
 
 let searchCard name =
   fetch ("https://api.scryfall.com/cards/search?q=" ^ name)
-  |> Js.Promise.then_ Response.oracle_text
+  |> Js.Promise.then_ Response.text
   |> Js.Promise.then_ (fun text -> let cards = Js.Json.parseExn text |> Decode.cards in
                         Js.Promise.resolve cards.cards)
   |> Js.Promise.catch (fun err -> Js.log err; Js.Promise.resolve [||])
