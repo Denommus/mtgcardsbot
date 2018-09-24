@@ -21,7 +21,7 @@ let () =
           answerInlineQuery telegramBot query
             (Array.to_list cards
              |> List.filter (fun (card : Mtg.card) -> card.imageUrl <> "")
-             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.imageUrl ())
+             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.thumbUrl ())
              |> Array.of_list))
       |> ignore);
   onMessage telegramBot (fun _ -> Js.log "I'm alive!")
