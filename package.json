@@ -17,9 +17,7 @@
     "bs-node-fetch": "^0.1.2",
     "bs-platform": "^2.2.3",
     "node-fetch": "^1.7.3",
-    "node-telegram-bot-api": "^0.29.0"
-  },
-  "devDependencies": {
+    "node-telegram-bot-api": "^0.29.0",
     "@glennsl/bs-jest": "^0.4.4"
   }
 }

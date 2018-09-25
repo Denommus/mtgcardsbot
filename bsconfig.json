@@ -13,9 +13,6 @@
       }
     ],
     "bs-dependencies": [
-        "bs-node-fetch", "bs-json"
-    ],
-    "bs-dev-dependencies": [
-      "@glennsl/bs-jest"
+        "bs-node-fetch", "bs-json", "@glennsl/bs-jest"
     ]
 }
