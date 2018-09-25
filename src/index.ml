@@ -20,8 +20,8 @@ let () =
       |> then_ (fun cards ->
           answerInlineQuery telegramBot query
             (Array.to_list cards
-             |> List.filter (fun (card : Mtg.card) -> card.imageUrl <> "")
-             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.thumbUrl ())
+             |> List.filter (fun (card : Mtg.card) -> card.image_uris.large <> "" && card.image_uris.small <> "")
+             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.image_uris.large ~thumb_url:card.image_uris.small ())
              |> Array.of_list))
       |> ignore);
   onMessage telegramBot (fun _ -> Js.log "I'm alive!")

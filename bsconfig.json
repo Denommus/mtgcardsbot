@@ -4,9 +4,18 @@
     "refmt": 3,
     "version": "1.0.0",
     "sources": [
-        "src"
+      {
+        "dir": "src"
+      },
+      {
+        "dir": "__tests__",
+        "type": "dev"
+      }
     ],
     "bs-dependencies": [
         "bs-node-fetch", "bs-json"
+    ],
+    "bs-dev-dependencies": [
+      "@glennsl/bs-jest"
     ]
 }

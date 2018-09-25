@@ -1,9 +1,14 @@
 open Bs_node_fetch
 
+type image_uris = {
+  large: string;
+  small: string;
+  normal: string;
+}
+
 type card = {
   name : string;
-  imageUrl : string;
-  thumbUrl : string;
+  image_uris: image_uris;
   id : string
 }
 
@@ -12,11 +17,17 @@ type cards = {
 }
 
 module Decode = struct
+  let image_uris json =
+    let open Json.Decode in {
+      large = json |> optional (field "large" string) |> Js.Option.getWithDefault "";
+      small = json |> optional (field "small" string) |> Js.Option.getWithDefault "";
+      normal = json |> optional (field "normal" string) |> Js.Option.getWithDefault "";
+    }
+
   let card json =
     let open Json.Decode in {
       name = json |> field "name" string;
-      imageUrl = json |> optional (field "large" string) |> Js.Option.getWithDefault "";
-      thumbUrl = json |> optional (field "small" string) |> Js.Option.getWithDefault "";
+      image_uris = json |> field "image_uris" image_uris;
       id = json |> field "id" string;
     }
 
