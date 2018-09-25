@@ -10,11 +10,6 @@ let url = try Sys.getenv "APP_URL" with
 
 let fullUrl = url ^ "/bot" ^ token
 
-let rec take len list = match (len, list) with
-  | (0, _) -> []
-  | (_, []) -> []
-  | (k, x::xs) -> x :: (take (k-1) xs)
-
 let telegramBot = bot token @@ TelegramApi.options ~webHook:([%bs.obj { port = string_of_int port }]) ()
 
 let () =
@@ -23,17 +18,10 @@ let () =
       let open Js.Promise in
       Mtg.searchCard (query##query)
       |> then_ (fun cards ->
-          let response = Array.to_list cards
-                         |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.image_uris.large ~thumb_url:card.image_uris.small ())
-                         |> take 20
-                         |> Array.of_list in
-          Js.log response;
-          Js.log query##id;
-          answerInlineQuery telegramBot query response)
-      |> catch (fun err ->
-          Js.log err;
-          let messageContent = makeInputTextMessageContent ~message_text:"Error" () in
-          let response = [| makeInlineQueryResultArticle ~id:query##id ~title:"error" ~input_message_content:messageContent |] in
-          answerInlineQuery telegramBot query response)
+          answerInlineQuery telegramBot query
+            (Array.to_list cards
+             |> List.filter (fun (card : Mtg.card) -> card.imageUrl <> "")
+             |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.imageUrl ())
+             |> Array.of_list))
       |> ignore);
   onMessage telegramBot (fun _ -> Js.log "I'm alive!")

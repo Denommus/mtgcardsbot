@@ -9,15 +9,13 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "start": "bsb -make-world && node lib/js/src/index.js",
-    "test": "bsb -make-world && jest --detectOpenHandles"
+    "start": "bsb -make-world && node lib/js/src/index.js"
   },
   "dependencies": {
-    "bs-json": "^0.2.4",
+    "bs-json": "^0.2.3",
     "bs-node-fetch": "^0.1.2",
-    "bs-platform": "^2.2.3",
+    "bs-platform": "^2.0.0",
     "node-fetch": "^1.7.3",
-    "node-telegram-bot-api": "^0.29.0",
-    "@glennsl/bs-jest": "^0.4.4"
+    "node-telegram-bot-api": "^0.29.0"
   }
 }
