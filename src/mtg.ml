@@ -1,4 +1,3 @@
-open Bs_node_fetch
 
 type card = {
   name : string;
@@ -25,8 +24,9 @@ module Decode = struct
 end
 
 let searchCard name =
-  fetch ("https://api.magicthegathering.io/v1/cards?pageSize=50&name=" ^ name)
-  |> Js.Promise.then_ Response.text
-  |> Js.Promise.then_ (fun text -> let cards = Js.Json.parseExn text |> Decode.cards in
-                        Js.Promise.resolve cards.cards)
-  |> Js.Promise.catch (fun err -> Js.log err; Js.Promise.resolve [||])
+  let open Js.Promise in
+  Fetch.fetch ("https://api.magicthegathering.io/v1/cards?pageSize=50&name=" ^ name)
+  |> then_ Fetch.Response.text
+  |> then_ (fun text -> let cards = Js.Json.parseExn text |> Decode.cards in
+                        resolve cards.cards)
+  |> catch (fun err -> Js.log err; resolve [||])

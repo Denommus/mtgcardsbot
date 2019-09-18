@@ -9,13 +9,14 @@
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "start": "bsb -make-world && node lib/js/src/index.js"
+    "start": "bsb -make-world && node src/index.bs.js"
   },
   "dependencies": {
-    "bs-json": "^0.2.3",
-    "bs-node-fetch": "^0.1.2",
-    "bs-platform": "^2.0.0",
-    "node-fetch": "^1.7.3",
-    "node-telegram-bot-api": "^0.29.0"
+    "@glennsl/bs-json": "^5.0.1",
+    "bs-fetch": "^0.5.0",
+    "bs-platform": "^5.0.4",
+    "isomorphic-fetch": "^2.2.1",
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.88.0"
   }
 }

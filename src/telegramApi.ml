@@ -1,6 +1,6 @@
 type inputMessageContent
 
-external makeInputTextMessageContent : message_text:string -> ?parse_mode:string -> ?disable_web_page_preview:Js.boolean -> unit -> inputMessageContent = "" [@@bs.obj]
+external makeInputTextMessageContent : message_text:string -> ?parse_mode:string -> ?disable_web_page_preview:bool -> unit -> inputMessageContent = "" [@@bs.obj]
 
 type inlineQueryResult
 
@@ -12,15 +12,15 @@ external extInlineQueryResultPhoto : _type:string -> id:string -> photo_url:stri
 
 let makeInlineQueryResultPhoto = extInlineQueryResultPhoto ~_type:"photo"
 
-type user = <id : int; is_bot: Js.boolean; first_name : string; last_name : string; username : string; language_code : string> Js.t
+type user = <id : int; is_bot: bool; first_name : string; last_name : string; username : string; language_code : string> Js.t
 
 type inlineQuery = <id : string; from : user; query : string; offset : string> Js.t
 
 type options
 
-external externalOptions : polling:Js.boolean -> ?webHook:(<port : string> Js.t) -> unit -> options = "" [@@bs.obj]
+external externalOptions : polling:bool -> ?webHook:(<port : string> Js.t) -> unit -> options = "" [@@bs.obj]
 
-let options ?polling:(p=false) = externalOptions ~polling:(Js.Boolean.to_js_boolean p)
+let options ?polling:(p=false) = externalOptions ~polling:p
 
 class type _bot =
   object
@@ -41,5 +41,7 @@ let processUpdate (bot : bot) obj = bot##processUpdate obj
 let onInlineQuery (bot : bot) f = bot##on "inline_query" (fun [@bs] msg -> f msg)
 
 let onMessage (bot : bot) f = bot##on "message" (fun [@bs] msg -> f msg)
+
+let onPollingError (bot : bot) f = bot##on "polling_error" (fun [@bs] msg -> f msg)
 
 let answerInlineQuery (bot : bot) query results = bot##answerInlineQuery query##id results

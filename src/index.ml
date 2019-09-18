@@ -1,3 +1,4 @@
+[%raw "require('isomorphic-fetch')"]
 open TelegramApi
 
 let token = Sys.getenv "TOKEN" (* This value is required, it's best if the system throws when it's not found *)
@@ -24,4 +25,5 @@ let () =
              |> List.map (fun (card : Mtg.card) -> makeInlineQueryResultPhoto ~id:card.id ~photo_url:card.imageUrl ~thumb_url:card.imageUrl ())
              |> Array.of_list))
       |> ignore);
+  onPollingError telegramBot (fun msg -> Js.log msg);
   onMessage telegramBot (fun _ -> Js.log "I'm alive!")

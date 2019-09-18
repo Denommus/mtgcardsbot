@@ -1,12 +1,22 @@
 {
-    "name": "mtgcardsbot",
-    "reason": {"react-jsx" : 2},
-    "refmt": 3,
-    "version": "1.0.0",
-    "sources": [
-        "src"
-    ],
-    "bs-dependencies": [
-        "bs-node-fetch", "bs-json"
-    ]
+  "name": "mtgcardsbot",
+  "refmt": 3,
+  "version": "1.0.0",
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "warnings": {
+    "error": "+101"
+  },
+  "namespace": true,
+  "bs-dependencies": [
+    "@glennsl/bs-json",
+    "bs-fetch"
+  ]
 }
